@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
+  # def index
+  #   @users = User.all
+  # end
   def index
+    UserMailer.example(User.new(email: 'bo@samurails.com')).deliver
     @users = User.all
   end
 
